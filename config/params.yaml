@@ -1,0 +1,8 @@
+ptgm:
+  ros__parameters:
+    file_name: "/home/hy/wust_nav/src/bringup_nav/pcd/simulation/rmul_2024.pcd"
+    min_z: -1.5
+    max_z: 0.5
+    radius: 0.5
+    min_pts: 10
+    use_sim_time: false
