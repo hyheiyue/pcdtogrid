@@ -38,7 +38,7 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 install(TARGETS
- ptgm gm
+ ptgm 
  DESTINATION lib/${PROJECT_NAME})
 install(DIRECTORY
  launch config
