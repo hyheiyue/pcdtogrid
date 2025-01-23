@@ -98,10 +98,10 @@ private:
         double max_y = std::numeric_limits<double>::lowest();
 
         for (const auto &point : cloud->points) {
-            min_x = std::min(min_x, point.x);
-            min_y = std::min(min_y, point.y);
-            max_x = std::max(max_x, point.x);
-            max_y = std::max(max_y, point.y);
+            min_x = std::min(min_x, static_cast<double>(point.x));
+            min_y = std::min(min_y, static_cast<double>(point.y));
+            max_x = std::max(max_x, static_cast<double>(point.x));
+            max_y = std::max(max_y, static_cast<double>(point.y));
         }
 
         int width = static_cast<int>(std::ceil((max_x - min_x) / grid_map.info.resolution));
@@ -132,6 +132,7 @@ private:
 
     void publishMap() {
         grid_map_.header.stamp = this->get_clock()->now();
+        grid_map_.header.frame_id = "map";
         map_publisher_->publish(grid_map_);
         RCLCPP_INFO(this->get_logger(), "Published map");
     }
